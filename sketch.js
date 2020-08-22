@@ -22,9 +22,9 @@ function foodLocation() {
 function draw() {
   scale(rez);
   background(220);
-
   snake.update();
   snake.show();
+
   if (snake.eat(food)) foodLocation();
 
   noStroke();
@@ -45,3 +45,7 @@ function keyPressed() {
     setup(); // restarts the game
   }
 }
+
+// function teleport(){
+//   if(snake.position === true)
+// }

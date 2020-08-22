@@ -11,8 +11,21 @@ class Snake {
     this.ydir = y;
   }
 
+  position() {
+    if (this.head.x < 0) {
+      this.head.x = w;
+    } else if (this.head.y < 0) {
+      this.head.y = h;
+    } else if (this.head.x > w) {
+      this.head.x = -1;
+    } else if (this.head.y > h) {
+      this.head.y = -1;
+    }
+  }
+
   update() {
     this.body.shift();
+    this.position();
     this.head.x += this.xdir;
     this.head.y += this.ydir;
     this.body.push(this.head.copy());
