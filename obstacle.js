@@ -21,7 +21,7 @@ class Obstacle {
     let y = snake.head.y;
 
     if (x == this.x && y == this.y) {
-      snake.body.shift();
+      //snake.body.shift();
       score--;
       if (score == 0) {
         end = true;
