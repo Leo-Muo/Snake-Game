@@ -1,7 +1,9 @@
+var bVal = false;
+
 class Snake {
   constructor() {
-    this.body = [];
     this.head = createVector(floor(w / 2), floor(h / 2));
+    this.body = [];
     this.xdir = 0;
     this.ydir = 0;
   }
@@ -23,6 +25,18 @@ class Snake {
     }
   }
 
+  endGame() {
+    let x = this.head.x;
+    let y = this.head.y;
+    for (let i = 0; i < this.body.length - 1; i++) {
+      let part = this.body[i];
+      if (part.x == x && part.y == y) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   update() {
     this.body.shift();
     this.position();
@@ -41,9 +55,11 @@ class Snake {
 
     if (x == pos.x && y == pos.y) {
       this.grow();
+      score++;
+      bVal = true;
       return true;
     }
-
+    bVal = false;
     return false;
   }
 
